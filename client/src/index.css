@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  color: rgb(var(--c-fg));
+  background: var(--app-bg);
+  background-attachment: fixed;
+}
+
+:root {
+  /* Light theme: soft ocean mist with calm aqua accents */
+  --c-bg: 231 242 243;
+  --c-fg: 12 39 52;
+  --c-muted: 75 101 111;
+  --c-subtle: 111 135 143;
+  --c-border: 173 204 208;
+  --c-surface: 245 250 249;
+  --c-surface2: 224 238 239;
+  --c-accent: 22 132 126;
+  --c-accent2: 42 126 151;
+  --c-success: 24 134 99;
+  --c-danger: 188 76 80;
+
+  --app-bg:
+    radial-gradient(900px 620px at 18% 8%, rgba(75, 158, 154, 0.1), transparent 62%),
+    radial-gradient(820px 560px at 82% 14%, rgba(70, 135, 158, 0.08), transparent 64%),
+    linear-gradient(180deg, rgb(239 247 246), rgb(224 238 240));
+}
+
+.dark {
+  /* Dark theme: deep ocean tones with the existing quiet clinical feel */
+  --c-bg: 5 22 32;
+  --c-fg: 226 244 246;
+  --c-muted: 142 176 184;
+  --c-subtle: 105 143 153;
+  --c-border: 27 67 80;
+  --c-surface: 8 32 45;
+  --c-surface2: 12 43 57;
+  --c-accent: 52 211 187;
+  --c-accent2: 56 171 204;
+  --c-success: 73 201 154;
+  --c-danger: 238 111 118;
+
+  --app-bg:
+    radial-gradient(900px 620px at 18% 10%, rgba(34, 173, 164, 0.15), transparent 60%),
+    radial-gradient(860px 580px at 82% 16%, rgba(46, 131, 168, 0.15), transparent 62%),
+    linear-gradient(180deg, rgb(5 22 32), rgb(4 17 27));
+}
+
+@layer base {
+  ::selection {
+    background: rgba(14, 140, 132, 0.22);
+  }
+  .dark ::selection {
+    background: rgba(52, 211, 187, 0.24);
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen;
+    color: rgb(var(--c-fg));
+  }
+
+  .topbar {
+    @apply border-b;
+    border-color: rgb(var(--c-border));
+    background-color: rgb(var(--c-surface) / 0.8);
+  }
+
+  .container-app {
+    @apply mx-auto w-full max-w-6xl px-4 md:px-8;
+  }
+
+  .panel {
+    @apply rounded-2xl border;
+    border-color: rgb(var(--c-border));
+    background-color: rgb(var(--c-surface) / 0.7);
+  }
+
+  .panel-strong {
+    @apply rounded-2xl border;
+    border-color: rgb(var(--c-border));
+    background-color: rgb(var(--c-surface2) / 0.8);
+  }
+
+  .kicker {
+    @apply text-[11px] font-semibold uppercase tracking-wide;
+    color: rgb(var(--c-muted));
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition;
+    border-color: rgb(var(--c-border));
+    background-color: rgb(var(--c-surface2));
+    color: rgb(var(--c-fg));
+  }
+  .btn:hover {
+    background: color-mix(in srgb, rgb(var(--c-surface2)) 82%, rgb(var(--c-accent)) 18%);
+  }
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-45;
+  }
+
+  .btn-primary {
+    @apply btn border-transparent text-white;
+    background: linear-gradient(100deg, rgb(var(--c-accent)), rgb(var(--c-accent2)));
+  }
+  .btn-primary:hover {
+    filter: saturate(1.06);
+  }
+
+  .btn-danger {
+    @apply btn border-transparent text-white;
+    background: linear-gradient(100deg, rgb(var(--c-danger)), color-mix(in srgb, rgb(var(--c-danger)) 70%, black 30%));
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium;
+    border-color: rgb(var(--c-border));
+    background-color: rgb(var(--c-surface2));
+    color: rgb(var(--c-fg));
+  }
+}
