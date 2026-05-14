@@ -4,6 +4,10 @@ Proxim is a browser-based conversational avatar trainer for pharmaceutical sales
 
 The project is built to match the Proxa Echo integration model: React front end, live multi-turn sessions, configurable HCP personas, and container-friendly deployment.
 
+## Website
+
+🌐 [https://proxim.co.in/](https://proxim.co.in/)
+
 ## Working Demo Video of Proxim
 
 [![Working Demo Video of Proxim](https://img.youtube.com/vi/N4RtS9wSZoA/0.jpg)](https://youtu.be/N4RtS9wSZoA)
